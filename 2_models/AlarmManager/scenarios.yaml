@@ -1,0 +1,102 @@
+# Scenario registry for 2_models/AlarmManager (one entry per .cfg in this directory).
+# Same practice as 2_models/MQTT/scenarios.yaml and 2_models/InfusionPumpRack/scenarios.yaml
+# -- see those files' own headers for the full field reference and
+# .cursor/rules/mqtt-scenario-registry.mdc for why this exists at all.
+#
+# This directory's own base module is Infrastructure_Channel.tla (copied from
+# 2_models/InfusionPumpRack/, NOT MQTTBroker_v1.tla) -- `spec_refs` therefore cites this
+# app's own design rationale, not an OASIS mqtt-v5.0 section.
+#
+# SCOPE of this first model (deliberately narrow -- see Component_AlarmManager.tla's own
+# header): only condition handling, centralized belief-building, and priority arbitration
+# across two pump condition sources. NOT modeled yet: latched/muted lifecycle states,
+# runtime-configurable priority rules, EventLog generation, dBus (this app communicates
+# over Infrastructure_Channel like its InfusionPumpRack sibling, not dBus).
+
+AlarmBelief_drifts_if_unreachable.cfg:
+  kind: disprove
+  expect: violated
+  invariants: [AlarmManagerBeliefAgreesWhenSettled]
+  spec_refs:
+    - "Infrastructure_Channel.tla: a currently-UNREACHABLE subscriber simply does not
+       receive a publish at all -- no queued-for-later semantics (see that module's own
+       header, and 2_models/InfusionPumpRack/Infrastructure_Channel.tla's identical
+       documented caveat)."
+  summary: >
+    Given Pump1 goes reachable and immediately raises OCCLUSION, but the Alarm Manager
+    itself was NEVER made reachable, TLC finds a reachable state (depth 3, canonical
+    -workers 1 witness) where the Alarm Manager's own dispatching queue AND inbox are both
+    empty ("settled" by this file's own definition) while its belief still says the
+    condition is inactive and the real pump condition is active. Belief has not merely
+    lagged; it has PERMANENTLY missed the report, with no mechanism in this model to ever
+    recover it (no retained-message equivalent, no periodic full-state resync). Proves
+    that, for a centralized alarm view built by subscribing to distributed condition
+    reports, the subscriber's OWN reachability at report time is a real precondition for
+    correctness, not an implementation detail.
+  caveat: >
+    Not a defect in Infrastructure_Channel.tla's delivery semantics -- same
+    "architectural, not a bug" framing as 2_models/InfusionPumpRack/RackStartStop_desync.cfg's
+    own caveat: the channel honored every hop it actually owned. The gap is that this
+    app, as modeled, has no mechanism for a subscriber to catch up on what it missed while
+    unreachable. See the sibling scenario AlarmBelief_agrees_when_reachable_and_settled.cfg
+    for the narrower claim that DOES hold once this precondition (plus one more, see that
+    scenario's own caveat) is met.
+  diagram: null
+  # No diagram tooling built for this app folder yet (would need a sibling of
+  # tools/pump_rack_channel_trace_to_svg.py for this trace shape) -- deferred, not an
+  # oversight.
+
+AlarmBelief_agrees_when_reachable_and_settled.cfg:
+  kind: prove
+  expect: holds
+  invariants: [AlarmManagerBeliefAgreesWhenSettled]
+  spec_refs:
+    - "Design contrast with AlarmBelief_drifts_if_unreachable.cfg: isolates the two
+       preconditions that scenario's finding (plus one discovered while building this
+       one) actually needs, rather than leaving 'when does this ever work' unanswered."
+  summary: >
+    Given the Alarm Manager is reachable from the very first state and stays reachable for
+    the whole behavior (TraceNext excludes AlarmManagerGoUnreachable entirely, same
+    restricted-TraceNext scoping idiom 2_models/InfusionPumpRack/RackStartStop_commit.cfg's
+    own header documents), AND every pump Raise/Clear action is paced to the Alarm
+    Manager's own queue capacity (RoomForAlarmManager guard, see this scenario's own
+    header for why this second precondition was necessary), belief EXACTLY agrees with
+    ground truth whenever nothing is left in flight to the Alarm Manager. TLC explored the
+    complete reachable state graph exhaustively (84,672 distinct states, 365,953 states
+    generated, depth 24, 0 states left on queue -- "Model checking completed. No error has
+    been found.").
+  caveat: >
+    TWO preconditions were needed, not the one originally planned -- see this scenario's
+    own header for the full narrative. The reachability precondition was anticipated (it
+    is the direct positive contrast to the disprove sibling). The queue-capacity
+    precondition was NOT anticipated and was found empirically: an earlier, unguarded cut
+    of this same file (reachability-only) ALSO violated the invariant, via a distinct
+    mechanism -- Infrastructure_Channel.tla's own "drop rather than block" capacity guard
+    on `publish` silently drops a condition report once the recipient's queue is already
+    at MaxQueueDepth, but Component_Pump.tla's PumpRaiseCondition/PumpClearCondition flip
+    the PUMP's own local ground truth in the same atomic step regardless of whether the
+    announcement actually landed in the queue. No finite MaxQueueDepth closes this gap on
+    its own (TLC can always find a path that fires enough raises/clears before the Alarm
+    Manager ever drains); RoomForAlarmManager instead paces the SOURCE side (a
+    scenario-local simplification, not a change to Component_Pump.tla itself -- real
+    backpressure would need round-trip signaling this simple channel doesn't have).
+    CONCRETE FINDING FOR THE COACHING CONVERSATION THIS APP WAS BUILT FOR: a centralized
+    alarm view is only as good as (a) its own uptime at the moment a condition changes and
+    (b) its ability to keep up with the rate conditions can change -- both are silent
+    failure modes in an unbounded-queue-free channel design, and neither shows up unless
+    you go looking for it.
+  diagram: null
+
+Smoke_BaseSpec.cfg:
+  kind: prove
+  expect: holds
+  invariants: []
+  spec_refs: []
+  summary: >
+    Throwaway parse/reachability smoke test (see Smoke_BaseSpec.tla's own header) -- NOT a
+    real correctness claim about this domain. Confirms TLC can parse
+    BaseSpec_AlarmManager.tla's full composition (both Component_Pump instances,
+    Component_AlarmManager, Infrastructure_Channel) and compute Init plus a bounded number
+    of Next steps with no error. SmokeBound (a CONSTRAINT on TLC's own TLCGet("level")
+    step counter, <= 8) keeps this specific throwaway check fast and terminating.
+  diagram: null

@@ -1,0 +1,73 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2026.09.14.200039 (rev: 5dbdb42)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 30 and seed 818238340986829895 with 1 worker on 12 cores with 14564MB heap and 64MB offheap memory [pid: 78142] (Mac OS X 26.5.1 aarch64, Eclipse Adoptium 11.0.22 64bit, MSBDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /Users/dirk-janswagerman/Projects/tlaplus_introduction_fresenius/1_tla_intro/13_StartPumpRetry.tla
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-9419885572437077419/Naturals.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-9419885572437077419/Sequences.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-9419885572437077419/_TLCTrace.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-9419885572437077419/TLC.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-9419885572437077419/TLCExt.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-9419885572437077419/FiniteSets.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-9419885572437077419/Integers.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module 13_StartPumpRetry
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module 13_StartPumpRetry
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2026-09-16 01:44:50)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 1 branches.
+@!@!@ENDMSG 2212 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2026-09-16 01:44:50.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(10) at 2026-09-16 01:44:50: 39 states generated, 25 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking temporal properties for the complete state space with 25 total distinct states at (2026-09-16 01:44:50)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 00s at 2026-09-16 01:44:50
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2193:0 @!@!@
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 1.9E-17
+@!@!@ENDMSG 2193 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(10) at 2026-09-16 01:44:50: 39 states generated (7.697 s/min), 25 distinct states found (4.934 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+39 states generated, 25 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 10.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 3 and the 95th percentile is 3).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 306ms at (2026-09-16 01:44:50)
+@!@!@ENDMSG 2186 @!@!@

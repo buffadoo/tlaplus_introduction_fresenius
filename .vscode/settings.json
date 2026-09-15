@@ -1,0 +1,3 @@
+{
+    "tlaplus.tlc.modelChecker.options": "-dump dot,actionable,colorize ${specName}.dot"
+}

@@ -1,0 +1,80 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2026.09.14.200039 (rev: 5dbdb42)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 5 and seed 598660943551048440 with 1 worker on 12 cores with 14564MB heap and 64MB offheap memory [pid: 68629] (Mac OS X 26.5.1 aarch64, Eclipse Adoptium 11.0.22 64bit, MSBDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /Users/dirk-janswagerman/Projects/tlaplus_introduction_fresenius/1_tla_intro/9_StartPump_HappyPath.tla
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-6654423702751444985/Naturals.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-6654423702751444985/Sequences.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-6654423702751444985/_TLCTrace.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-6654423702751444985/TLC.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-6654423702751444985/TLCExt.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-6654423702751444985/FiniteSets.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-6654423702751444985/Integers.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module 9_StartPump_HappyPath
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module 9_StartPump_HappyPath
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2026-09-16 00:55:03)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2026-09-16 00:55:03.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2110:1 @!@!@
+Invariant NeverInfusing is violated.
+@!@!@ENDMSG 2110 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ channel = <<>>
+/\ startWasSent = FALSE
+/\ pumpState = "idle"
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <RackControllerSendStart line 28, col 5 to line 31, col 27 of module 9_StartPump_HappyPath>
+/\ channel = <<"START">>
+/\ startWasSent = TRUE
+/\ pumpState = "idle"
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <PumpReceivesStart line 35, col 5 to line 38, col 29 of module 9_StartPump_HappyPath>
+/\ channel = <<>>
+/\ startWasSent = TRUE
+/\ pumpState = "infusing"
+
+@!@!@ENDMSG 2217 @!@!@
+"CounterExample written: /Users/dirk-janswagerman/Projects/tlaplus_introduction_fresenius/1_tla_intro/9_StartPump_HappyPath_trace_T2026-09-15_22-55-03_F5_W1_Mbfs.tlc"
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(3) at 2026-09-16 00:55:03: 3 states generated (612 s/min), 3 distinct states found (612 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+3 states generated, 3 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 3.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 295ms at (2026-09-16 00:55:03)
+@!@!@ENDMSG 2186 @!@!@

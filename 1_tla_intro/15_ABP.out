@@ -1,0 +1,139 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2026.09.14.200039 (rev: 5dbdb42)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 37 and seed 8353121642010263879 with 1 worker on 12 cores with 14564MB heap and 64MB offheap memory [pid: 81210] (Mac OS X 26.5.1 aarch64, Eclipse Adoptium 11.0.22 64bit, MSBDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /Users/dirk-janswagerman/Projects/tlaplus_introduction_fresenius/1_tla_intro/15_ABP.tla
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-2613618938128343444/Naturals.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-2613618938128343444/Sequences.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-2613618938128343444/_TLCTrace.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-2613618938128343444/TLC.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-2613618938128343444/TLCExt.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-2613618938128343444/FiniteSets.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-2613618938128343444/Integers.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.142119/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module 15_ABP
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module 15_ABP
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2026-09-16 01:57:40)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 1 branches.
+@!@!@ENDMSG 2212 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2026-09-16 01:57:40.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2114:1 @!@!@
+Deadlock reached.
+@!@!@ENDMSG 2114 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ pumpApplied = <<>>
+/\ channel = <<>>
+/\ nextToSend = 1
+/\ lossesSoFar = 0
+/\ bitOut = 0
+/\ expectedBit = 0
+/\ ackChannel = <<>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <RackControllerSend line 39, col 5 to line 42, col 90 of module 15_ABP>
+/\ pumpApplied = <<>>
+/\ channel = <<[cmd |-> "START", bit |-> 0]>>
+/\ nextToSend = 1
+/\ lossesSoFar = 0
+/\ bitOut = 0
+/\ expectedBit = 0
+/\ ackChannel = <<>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <PumpReceivesAndApplies line 51, col 5 to line 59, col 52 of module 15_ABP>
+/\ pumpApplied = <<"START">>
+/\ channel = <<>>
+/\ nextToSend = 1
+/\ lossesSoFar = 0
+/\ bitOut = 0
+/\ expectedBit = 1
+/\ ackChannel = <<0>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <RackControllerReceivesAck line 65, col 5 to line 72, col 67 of module 15_ABP>
+/\ pumpApplied = <<"START">>
+/\ channel = <<>>
+/\ nextToSend = 2
+/\ lossesSoFar = 0
+/\ bitOut = 1
+/\ expectedBit = 1
+/\ ackChannel = <<>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <RackControllerSend line 39, col 5 to line 42, col 90 of module 15_ABP>
+/\ pumpApplied = <<"START">>
+/\ channel = <<[cmd |-> "STOP", bit |-> 1]>>
+/\ nextToSend = 2
+/\ lossesSoFar = 0
+/\ bitOut = 1
+/\ expectedBit = 1
+/\ ackChannel = <<>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <PumpReceivesAndApplies line 51, col 5 to line 59, col 52 of module 15_ABP>
+/\ pumpApplied = <<"START", "STOP">>
+/\ channel = <<>>
+/\ nextToSend = 2
+/\ lossesSoFar = 0
+/\ bitOut = 1
+/\ expectedBit = 0
+/\ ackChannel = <<1>>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <RackControllerReceivesAck line 65, col 5 to line 72, col 67 of module 15_ABP>
+/\ pumpApplied = <<"START", "STOP">>
+/\ channel = <<>>
+/\ nextToSend = 3
+/\ lossesSoFar = 0
+/\ bitOut = 0
+/\ expectedBit = 0
+/\ ackChannel = <<>>
+
+@!@!@ENDMSG 2217 @!@!@
+"CounterExample written: /Users/dirk-janswagerman/Projects/tlaplus_introduction_fresenius/1_tla_intro/15_ABP_trace_T2026-09-15_23-57-40_F37_W1_Mbfs.tlc"
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(8) at 2026-09-16 01:57:40: 54 states generated (8.663 s/min), 33 distinct states found (5.294 ds/min), 7 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+54 states generated, 33 distinct states found, 7 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 8.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 376ms at (2026-09-16 01:57:40)
+@!@!@ENDMSG 2186 @!@!@

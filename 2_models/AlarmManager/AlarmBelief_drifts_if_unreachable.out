@@ -1,0 +1,119 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2026.09.12.025210 (rev: 867aefb)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 18 and seed 3678551623341833760 with 1 worker on 12 cores with 14564MB heap and 64MB offheap memory [pid: 30909] (Mac OS X 26.5.1 aarch64, Eclipse Adoptium 11.0.22 64bit, MSBDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /Users/dirk-janswagerman/Projects/fresenius/2_models/AlarmManager/AlarmBelief_drifts_if_unreachable.tla
+Parsing file /Users/dirk-janswagerman/Projects/fresenius/2_models/AlarmManager/BaseSpec_AlarmManager.tla
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-7593722317901560436/_TLCTrace.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.120300/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-7593722317901560436/Naturals.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.120300/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /Users/dirk-janswagerman/Projects/fresenius/2_models/AlarmManager/Infrastructure_Channel.tla
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-7593722317901560436/Sequences.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.120300/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-7593722317901560436/FiniteSets.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.120300/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /Users/dirk-janswagerman/Projects/fresenius/2_models/AlarmManager/Component_Pump.tla
+Parsing file /Users/dirk-janswagerman/Projects/fresenius/2_models/AlarmManager/Component_AlarmManager.tla
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-7593722317901560436/TLC.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.120300/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-7593722317901560436/TLCExt.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.120300/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file /private/var/folders/vs/d6ctqcjd5vx3_zx2zhr1qkbc0000gn/T/tlc-7593722317901560436/Integers.tla (jar:file:/Users/dirk-janswagerman/.vscode/extensions/tlaplus.vscode-ide-2026.9.120300/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module Infrastructure_Channel
+Semantic processing of module Component_Pump
+Semantic processing of module Component_AlarmManager
+Semantic processing of module BaseSpec_AlarmManager
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module AlarmBelief_drifts_if_unreachable
+Linting of module Infrastructure_Channel
+Linting of module Component_Pump
+Linting of module Component_AlarmManager
+Linting of module BaseSpec_AlarmManager
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module AlarmBelief_drifts_if_unreachable
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2026-09-15 09:10:21)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2026-09-15 09:10:22.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2110:1 @!@!@
+Invariant AlarmManagerBeliefAgreesWhenSettled is violated.
+@!@!@ENDMSG 2110 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ pump1 = [conditions |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]]
+/\ pump2 = [conditions |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]]
+/\ channel = [ dispatching |->
+      { [client |-> "Pump1", queue |-> <<>>],
+        [client |-> "Pump2", queue |-> <<>>],
+        [client |-> "AlarmManager", queue |-> <<>>] },
+  inbox |->
+      { [client |-> "Pump1", queue |-> <<>>],
+        [client |-> "Pump2", queue |-> <<>>],
+        [client |-> "AlarmManager", queue |-> <<>>] },
+  reachable |-> {} ]
+/\ alarmManager = [belief |-> [Pump1 |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE], Pump2 |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]], lastPublished |-> "NONE"]
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <Pump1GoReachable line 69, col 28 to line 69, col 104 of module BaseSpec_AlarmManager>
+/\ pump1 = [conditions |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]]
+/\ pump2 = [conditions |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]]
+/\ channel = [ dispatching |->
+      { [client |-> "Pump1", queue |-> <<>>],
+        [client |-> "Pump2", queue |-> <<>>],
+        [client |-> "AlarmManager", queue |-> <<>>] },
+  inbox |->
+      { [client |-> "Pump1", queue |-> <<>>],
+        [client |-> "Pump2", queue |-> <<>>],
+        [client |-> "AlarmManager", queue |-> <<>>] },
+  reachable |-> {"Pump1"} ]
+/\ alarmManager = [belief |-> [Pump1 |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE], Pump2 |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]], lastPublished |-> "NONE"]
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <Pump1RaiseOccl line 71, col 28 to line 71, col 104 of module BaseSpec_AlarmManager>
+/\ pump1 = [conditions |-> [OCCLUSION |-> TRUE, LOW_BATTERY |-> FALSE]]
+/\ pump2 = [conditions |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]]
+/\ channel = [ dispatching |->
+      { [client |-> "Pump1", queue |-> <<>>],
+        [client |-> "Pump2", queue |-> <<>>],
+        [client |-> "AlarmManager", queue |-> <<>>] },
+  inbox |->
+      { [client |-> "Pump1", queue |-> <<>>],
+        [client |-> "Pump2", queue |-> <<>>],
+        [client |-> "AlarmManager", queue |-> <<>>] },
+  reachable |-> {"Pump1"} ]
+/\ alarmManager = [belief |-> [Pump1 |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE], Pump2 |-> [OCCLUSION |-> FALSE, LOW_BATTERY |-> FALSE]], lastPublished |-> "NONE"]
+
+@!@!@ENDMSG 2217 @!@!@
+"CounterExample written: /Users/dirk-janswagerman/Projects/fresenius/2_models/AlarmManager/AlarmBelief_drifts_if_unreachable_trace_T2026-09-15_07-10-21_F18_W1_Mbfs.tlc"
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(3) at 2026-09-15 09:10:22: 6 states generated (935 s/min), 5 distinct states found (779 ds/min), 2 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+6 states generated, 5 distinct states found, 2 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 3.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 386ms at (2026-09-15 09:10:22)
+@!@!@ENDMSG 2186 @!@!@
